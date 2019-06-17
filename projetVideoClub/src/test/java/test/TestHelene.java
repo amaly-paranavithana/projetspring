@@ -86,4 +86,17 @@ public class TestHelene {
 		
 		ctx.close();
 	}
+	public static void testAdherentAddArticle() {
+		ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext("application-context.xml");
+		ArticleService serv = ctx.getBean(ArticleService.class);
+		AdherentService serv1 = ctx.getBean(AdherentService.class);
+		Article article=serv.findByNoArticle(6);
+		Adherent adherent=serv1.findByNoAdherent(1);
+		adherent.setArticlesEmpruntes(article);
+		// update
+		serv1.addArticle(adherent, article);
+		
+		ctx.close();
+	}
+	
 }

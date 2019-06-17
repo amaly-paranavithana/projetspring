@@ -63,14 +63,16 @@ public class ArticleService {
 	public Article findByNoArticle(Integer noArticle) {
 		return articleRepository.findByNoArticle(noArticle).get();
 	}
-	
-	public List<Article> findByNbDisques(Integer nbDisques){
-	return articleRepository.findByNbDisques(nbDisques);
-}
-	
-	public List<Article> findByType(@Param("type")String type){
-	return articleRepository.findByType(type);
-	}
-	
-}
 
+	public List<Article> findByNbDisques(Integer nbDisques) {
+		return articleRepository.findByNbDisques(nbDisques);
+	}
+
+	public List<Article> findByTypeDvd() {
+		return articleRepository.findByTypeDvd();
+	}
+
+	public List<Article> findByTypeBluRay() {
+		return articleRepository.findByTypeBluRay();
+	}
+}
