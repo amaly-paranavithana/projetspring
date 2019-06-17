@@ -22,7 +22,7 @@ public class ArticleService {
 	private FilmRepository filmRepository;
 
 	public boolean insert(Article article) {
-		if (article.getNoArticle() == null || article.getNoArticle() != 0) {
+		if (article.getNoArticle() == null || article.getNoArticle() == 0) {
 			return false;
 		}
 		articleRepository.save(article);

@@ -24,14 +24,14 @@ public class FilmService {
 	
 
 	public boolean insert(Film film) {
-		if (film.getId() == null || film.getId() != 0) {
+		if (film.getId() == null || film.getId() == 0) {
 			return false;
 		}
 		filmRepository.save(film);
 		return true;
 	}
 	public boolean update(Film film) {
-		if (film.getId() == null || film.getId() != 0) {
+		if (film.getId() == null || film.getId() == 0) {
 			return false;
 		}
 		filmRepository.save(film);

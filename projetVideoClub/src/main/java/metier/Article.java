@@ -13,16 +13,18 @@ import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
+@SequenceGenerator(name = "seqArticle", sequenceName="seq_Article", initialValue=1,allocationSize=1)
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "ARTICLE_TYPE")
 @Table(name = "articles")
 public class Article {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE,generator="seqArticle")
 	@Column(name = "numéro_article")
 	private Integer noArticle;
 	@Column(name = "nombre_disque")
