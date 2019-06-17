@@ -14,7 +14,7 @@ public class Adresse {
 	@Column(name = "code_postal")
 	private String cp;
 	
-	@OnetoOne
+	@OneToOne
 	private Adherent adherent;
 
 	// Getters & Setters
