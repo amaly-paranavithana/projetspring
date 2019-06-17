@@ -9,9 +9,16 @@ import org.springframework.data.repository.query.Param;
 
 import metier.*;
 
-public interface ArticleRepository extends JpaRepository<Article, Integer>{
-public Optional<Article> findByNoArticle(Integer noArticle);
-public List<Article> findByNbDisques(Integer nbDisques);
-@Query("select s from Article s where s.article_type=:type")
-public List<Article> findByType(@Param("type")String type);
+public interface ArticleRepository extends JpaRepository<Article, Integer> {
+	public Optional<Article> findByNoArticle(Integer noArticle);
+
+	public List<Article> findByNbDisques(Integer nbDisques);
+	// @Query query = em.createNativeQuery("SELECT * FROM Sorciers where
+	// SORCIER_TYPE='eleve'", Sorcier.class);
+	// List<Sorcier> liste = query.getResultList();
+
+	@Query(value = "SELECT * FROM ARTICLES a WHERE a.article_type = 'dvd'", nativeQuery = true)
+	public List<Article> findByTypeDvd();
+	@Query(value = "SELECT * FROM ARTICLES a WHERE a.article_type = 'bluRay'", nativeQuery = true)
+	public List<Article> findByTypeBluRay();
 }

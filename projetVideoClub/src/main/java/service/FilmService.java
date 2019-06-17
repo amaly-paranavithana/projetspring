@@ -30,7 +30,13 @@ public class FilmService {
 		filmRepository.save(film);
 		return true;
 	}
-
+	public boolean update(Film film) {
+		if (film.getId() == null || film.getId() != 0) {
+			return false;
+		}
+		filmRepository.save(film);
+		return true;
+	}
 	public void delete(Film film) {
 	Optional<Film> opt = filmRepository.findById(film.getId());
 	if (opt.isPresent()) {
