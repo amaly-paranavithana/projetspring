@@ -81,8 +81,8 @@ public class AdherentService {
 		return adherentRepository.findByPrenom(prenom);
 	}
 	
-	public void findByNom(String nom){
-		adherentRepository.findByPrenom(nom);
+	public List<Adherent> findByNom(String nom){
+		return adherentRepository.findByPrenom(nom);
 	}
 	
 }
