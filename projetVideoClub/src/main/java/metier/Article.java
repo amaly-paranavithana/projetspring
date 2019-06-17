@@ -17,7 +17,7 @@ public class Article {
 
 	@ManyToOne
 	@JoinColumn
-	private List<Adherent> emprunteur;
+	private Adherent emprunteur;
 	
 	@OneToMany
 	@JoinColumn
