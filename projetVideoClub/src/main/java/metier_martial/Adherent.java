@@ -19,14 +19,24 @@ public class Adherent {
 	private Civilite titre;
 	private String prenom;
 	private String nom;
+	
+	
+	@OneToMany
+	@JoinColumn
+	private List<Article> articlesEmpruntes;
 
 	
 	@OneToOne(mappedBy = "key.adherent")
 	private Adresse adresse;
 	
-	@OneToMany
-	@JoinColumn
-	private List<Article> articlesEmpruntes;
+	public Integer getNoAdherent() {
+		return noAdherent;
+	}
+
+	public void setNoAdherent(Integer noAdherent) {
+		this.noAdherent = noAdherent;
+	}
+
 	
 	public Adherent () {
 		
@@ -56,14 +66,6 @@ public class Adherent {
 		this.nom = nom;
 	}
 
-	public Integer getNumadhe() {
-		return numadhe;
-	}
-
-	public void setNumadhe(Integer numadhe) {
-		this.numadhe = numadhe;
-	}
-
 	public Adresse getAdresse() {
 		return adresse;
 	}
@@ -84,8 +86,8 @@ public class Adherent {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
+		result = prime * result + ((noAdherent == null) ? 0 : noAdherent.hashCode());
 		result = prime * result + ((nom == null) ? 0 : nom.hashCode());
-		result = prime * result + ((numadhe == null) ? 0 : numadhe.hashCode());
 		result = prime * result + ((prenom == null) ? 0 : prenom.hashCode());
 		result = prime * result + ((titre == null) ? 0 : titre.hashCode());
 		return result;
@@ -100,15 +102,15 @@ public class Adherent {
 		if (getClass() != obj.getClass())
 			return false;
 		Adherent other = (Adherent) obj;
+		if (noAdherent == null) {
+			if (other.noAdherent != null)
+				return false;
+		} else if (!noAdherent.equals(other.noAdherent))
+			return false;
 		if (nom == null) {
 			if (other.nom != null)
 				return false;
 		} else if (!nom.equals(other.nom))
-			return false;
-		if (numadhe == null) {
-			if (other.numadhe != null)
-				return false;
-		} else if (!numadhe.equals(other.numadhe))
 			return false;
 		if (prenom == null) {
 			if (other.prenom != null)
@@ -119,6 +121,7 @@ public class Adherent {
 			return false;
 		return true;
 	}
+
 	
 	
 	
