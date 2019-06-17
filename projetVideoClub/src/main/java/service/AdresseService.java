@@ -17,7 +17,7 @@ public class AdresseService {
 	private AdresseRepository adresseRepository;
 
 	public boolean insert(Adresse adresse) {
-		if (adresse.getId() == null || adresse.getId() != 0) {
+		if (adresse.getId() == null || adresse.getId() == 0) {
 			return false;
 		}
 		adresseRepository.save(adresse);
