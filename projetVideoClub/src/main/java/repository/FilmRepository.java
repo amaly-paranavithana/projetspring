@@ -10,8 +10,11 @@ import org.springframework.data.repository.query.Param;
 
 import metier.Film;
 
-public interface FilmRepository extends JpaRepository<Film, Integer>{
-public List<Film> findByTitre(String titre);
-public List<Film> findByDateSortie(Date date);
+public interface FilmRepository extends JpaRepository<Film, Integer> {
+	public Optional<Film> findById(Integer id);
+
+	public List<Film> findByTitre(String titre);
+
+	public List<Film> findByDateSortie(Date date);
 
 }

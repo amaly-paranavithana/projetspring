@@ -11,7 +11,7 @@ import metier_martial.*;
 
 
 public interface AdherentRepository extends JpaRepository<Adherent, Integer> {
-	public List<Adherent> findByNoAdherent(Integer noAdherent);
+	public Optional<Adherent> findByNoAdherent(Integer noAdherent);
 	public List<Adherent> findByPrenom(String prenom);
 	public List<Adherent> findByNom(String nom);
 	
