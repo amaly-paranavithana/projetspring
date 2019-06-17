@@ -49,6 +49,7 @@
 				<property name="databasePlatform" value="${jpa.dialect}"></property>
 				<property name="showSql" value="${jpa.showSql}"></property>
 			</bean>
+		
 			<!-- Config de jpa -->
 		</property>
 		<property name="jpaProperties">
@@ -62,6 +63,10 @@
 	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
 		<property name="entityManagerFactory" ref="entityManagerFactory"></property>
 	</bean>
+	
+		<!-- Aide à la gestion des exceptions -->
+	<bean
+        class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor"></bean>
 
 
 </beans>
