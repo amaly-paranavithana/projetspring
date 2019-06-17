@@ -10,6 +10,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
+import metier.Adresse;
+import metier.Article;
+
 @Entity
 public class Adherent {
 	
