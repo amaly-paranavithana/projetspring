@@ -7,7 +7,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-import metier.Adherent;
+import metier_martial.*;
+
 
 public interface AdherentRepository extends JpaRepository<Adherent, Integer> {
 	public List<Adherent> findByNoAdherent(Integer noAdherent);
