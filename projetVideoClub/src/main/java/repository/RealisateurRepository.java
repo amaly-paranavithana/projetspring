@@ -9,6 +9,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 public interface RealisateurRepository extends JpaRepository<Realisateur, Integer>{
+	public Optional<Realisateur> findById(Integer id);
 	public List<Realisateur> findByNom(String nom);
 	public List<Realisateur> findByPrenom(String prenom);
 

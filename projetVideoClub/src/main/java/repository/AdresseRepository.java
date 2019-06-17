@@ -10,7 +10,7 @@ import org.springframework.data.repository.query.Param;
 import metier.Adresse;
 
 public interface AdresseRepository extends JpaRepository<Adresse, Integer> {
-	public List<Adresse> findById(Integer id);
+	public Optional<Adresse> findById(Integer id);
 	public List<Adresse> findByNumero(Integer numero);
 	public List<Adresse> findByRue(String rue);
 	public List<Adresse> findByVille(String ville);
