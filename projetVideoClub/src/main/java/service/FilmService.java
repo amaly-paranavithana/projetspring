@@ -49,8 +49,8 @@ public class FilmService {
 		}
 	}
 	
-	public Optional<Film> findById(Integer id) {
-		return filmRepository.findById(id);
+	public Film findById(Integer id) {
+		return filmRepository.findById(id).get();
 	}
 	
 	public List<Film> findByTitre(String titre) {
