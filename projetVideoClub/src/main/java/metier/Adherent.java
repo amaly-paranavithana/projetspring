@@ -26,10 +26,17 @@ public class Adherent {
 	
 	@OneToMany(mappedBy="emprunteur")
 
+
+
+
 	private List<Article> articlesEmpruntes;
 
 	
 	@OneToOne(mappedBy = "adherent")
+
+	
+
+
 	private Adresse adresse;
 	
 	public Integer getNoAdherent() {
