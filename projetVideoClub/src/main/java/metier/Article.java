@@ -32,8 +32,8 @@ public class Article {
 	@JoinColumn(name="emprunteur")
 	private Adherent emprunteur;
 	
-	@OneToMany
-	@JoinColumn
+	@OneToMany(mappedBy="article")
+
 	private List<Film> films;
 
 	// Constructeur
