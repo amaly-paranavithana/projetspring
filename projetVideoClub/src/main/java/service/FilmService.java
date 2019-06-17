@@ -14,6 +14,12 @@ public class FilmService {
 	@Autowired
 	private FilmRepository filmRepository;
 	
+	@Autowired
+	private RealisateurRepository realisateurRepository;
+	
+	@Autowired
+	private FilmRealisateurRepository filmRealisateurRepository;
+	
 
 	public boolean insert(Film film) {
 		if (film.getId() == null || film.getId() != 0) {
@@ -29,5 +35,15 @@ public class FilmService {
 		filmRepository.delete(opt.get());
 	}
 	}
+	
+	public void addRealisateur(Film film, Realisateur realisateur) {
+		Optional<Film> opt = filmRepository.findById(film.getId());
+		if (opt.isPresent()) {
+			FilmRealisateur filmRealisateur = new FilmRealisateur();
 
+			filmRealisateur.setKey(new FilmRealisateurKey(opt.get(), realisateurRepository.findById(realisateur.getId()).get()));
+			
+			filmRealisateurRepository.save(filmRealisateur);
+		}
+	}
 }
