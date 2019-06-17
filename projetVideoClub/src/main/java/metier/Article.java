@@ -1,6 +1,9 @@
 package metier;
 
+import java.util.List;
+
 import javax.persistence.*;
+import metier_martial.*;
 
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
@@ -44,11 +47,11 @@ public class Article {
 		this.nbDisques = nbDisques;
 	}
 
-	public List<Adherent> getEmprunteur() {
+	public Adherent getEmprunteur() {
 		return emprunteur;
 	}
 
-	public void setEmprunteur(List<Adherent> emprunteur) {
+	public void setEmprunteur(Adherent emprunteur) {
 		this.emprunteur = emprunteur;
 	}
 
