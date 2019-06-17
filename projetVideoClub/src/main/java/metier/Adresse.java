@@ -13,10 +13,16 @@ public class Adresse {
 	private String ville;
 	@Column(name = "code_postal")
 	private String cp;
-	
 	@OneToOne
 	private Adherent adherent;
 
+	
+	//Constructeur
+	public Adresse() {
+		
+	}
+	
+	
 	// Getters & Setters
 	public Integer getId() {
 		return id;
