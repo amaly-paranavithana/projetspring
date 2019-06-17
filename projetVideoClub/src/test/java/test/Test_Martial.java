@@ -7,6 +7,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import metier.Adherent;
 import metier.Adresse;
+import metier.Article;
 import metier.BluRay;
 import metier.Civilite;
 import metier.Dvd;
@@ -14,6 +15,7 @@ import metier.Film;
 import metier.Realisateur;
 import service.AdherentService;
 import service.AdresseService;
+import service.ArticleService;
 import service.FilmService;
 
 public class Test_Martial {
@@ -24,6 +26,8 @@ public class Test_Martial {
 		AdherentService adherentService = ctx.getBean(AdherentService.class);
 		AdresseService adresseService = ctx.getBean(AdresseService.class);
 		FilmService filmService = ctx.getBean(FilmService.class);
+		ArticleService articleService = ctx.getBean(ArticleService.class);
+		
 		
 		Adresse adr1 = new Adresse();
 		adr1.setNumero(1);
@@ -82,11 +86,15 @@ public class Test_Martial {
 //		adresseService.insert(adr1);
 //		adresseService.insert(adr2);
 		
-		f1.setId(1);
-		f2.setId(2);
-		filmService.insert(f1);
-		filmService.insert(f2);
+//		f1.setId(1);
+//		f2.setId(2);
+//		filmService.insert(f1);
+//		filmService.insert(f2);
 		
+//		blu1.setNoArticle(1);
+//		dvd1.setNoArticle(2);
+//		articleService.insert(blu1);
+//		articleService.insert(dvd1);
 		
 		ctx.close();
 		
