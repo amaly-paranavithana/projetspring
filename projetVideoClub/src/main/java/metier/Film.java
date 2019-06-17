@@ -8,10 +8,11 @@ import javax.persistence.*;
 import metier.Article;
 
 @Entity
+@SequenceGenerator(name = "seqFilm", sequenceName="seq_Film", initialValue=1,allocationSize=1)
 public class Film {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "seqFilm")
 	private Integer id;
 	
 	private String titre;

@@ -25,11 +25,11 @@ public class Adherent {
 	
 	
 	@OneToMany(mappedBy="emprunteur")
-	@JoinColumn
 	private List<Article> articlesEmpruntes;
 
 	
-	@OneToOne(mappedBy = "id_adherent")
+	@OneToOne(mappedBy = "adherent")
+	@JoinColumn(name = "id_adresse")
 	private Adresse adresse;
 	
 	public Integer getNoAdherent() {

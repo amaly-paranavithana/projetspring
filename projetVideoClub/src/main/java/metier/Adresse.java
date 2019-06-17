@@ -4,9 +4,10 @@ import javax.persistence.*;
 
 
 @Entity
+@SequenceGenerator(name = "seqAdresse", sequenceName="seq_Adresse", initialValue=1,allocationSize=1)
 public class Adresse {
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "seqAdresse")
 	private Integer id;
 	private Integer numero;
 	private String rue;
