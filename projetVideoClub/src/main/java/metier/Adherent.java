@@ -24,12 +24,12 @@ public class Adherent {
 	private String nom;
 	
 	
-	@OneToMany
+	@OneToMany(mappedBy="emprunteur")
 	@JoinColumn
 	private List<Article> articlesEmpruntes;
 
 	
-	@OneToOne(mappedBy = "key.adherent")
+	@OneToOne(mappedBy = "id_adherent")
 	private Adresse adresse;
 	
 	public Integer getNoAdherent() {
@@ -81,8 +81,8 @@ public class Adherent {
 		return articlesEmpruntes;
 	}
 
-	public void setArticlesEmpruntes(List<Article> articlesEmpruntes) {
-		this.articlesEmpruntes = articlesEmpruntes;
+	public void setArticlesEmpruntes(Article articleEmprunte) {
+		this.articlesEmpruntes.add(articleEmprunte);
 	}
 
 	@Override
