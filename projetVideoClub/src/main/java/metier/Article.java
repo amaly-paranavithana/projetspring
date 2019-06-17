@@ -18,6 +18,10 @@ public class Article {
 	@ManyToOne
 	@JoinColumn
 	private List<Adherent> emprunteur;
+	
+	@OneToMany
+	@JoinColumn
+	private List<Film> films;
 
 	// Constructeur
 	public Article() {
