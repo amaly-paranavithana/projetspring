@@ -4,7 +4,6 @@ import javax.persistence.*;
 
 
 @Entity
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 public class Adresse {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -14,8 +13,11 @@ public class Adresse {
 	private String ville;
 	@Column(name = "code_postal")
 	private String cp;
-	@OneToOne(mappedBy="id_adresse")
+	@OneToOne
+	@JoinColumn(name="id_adherent")
 	private Adherent adherent;
+	@Version
+	private Integer version;
 
 	
 	//Constructeur
