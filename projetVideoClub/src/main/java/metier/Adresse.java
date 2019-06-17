@@ -14,7 +14,7 @@ public class Adresse {
 	private String ville;
 	@Column(name = "code_postal")
 	private String cp;
-	@OneToOne
+	@OneToOne(mappedBy="id_adresse")
 	private Adherent adherent;
 
 	

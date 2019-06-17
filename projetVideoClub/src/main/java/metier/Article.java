@@ -18,7 +18,7 @@ public class Article {
 	private Integer nbDisques;
 
 	@ManyToOne
-	@JoinColumn
+	@JoinColumn(name="emprunteur")
 	private Adherent emprunteur;
 	
 	@OneToMany
@@ -52,6 +52,15 @@ public class Article {
 
 	public void setEmprunteur(Adherent emprunteur) {
 		this.emprunteur = emprunteur;
+	}
+	
+
+	public List<Film> getFilms() {
+		return films;
+	}
+
+	public void setFilms(Film film) {
+		this.films.add(film);
 	}
 
 	// Hashcode & equals
