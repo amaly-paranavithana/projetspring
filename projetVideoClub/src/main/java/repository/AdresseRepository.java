@@ -4,10 +4,9 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.query.Param;
+import metier.*;
+import metier_martial.*;
 
-import metier.Adresse;
 
 public interface AdresseRepository extends JpaRepository<Adresse, Integer> {
 	public Optional<Adresse> findById(Integer id);
