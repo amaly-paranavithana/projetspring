@@ -6,10 +6,8 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import metier.Adresse;
-import metier_martial.Adherent;
-import repository.AdherentRepository;
-import repository.AdresseRepository;
+import metier.*;
+import repository.*;
 
 
 	

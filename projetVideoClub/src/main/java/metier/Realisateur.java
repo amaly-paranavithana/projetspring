@@ -1,4 +1,4 @@
-package metier_martial;
+package metier;
 
 import javax.persistence.*;
 

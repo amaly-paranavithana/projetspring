@@ -7,7 +7,6 @@ import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import metier.*;
-import metier_martial.*;
 
 public interface RealisateurRepository extends JpaRepository<Realisateur, Integer>{
 	public Optional<Realisateur> findById(Integer id);

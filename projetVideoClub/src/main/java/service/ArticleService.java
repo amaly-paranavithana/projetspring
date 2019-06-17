@@ -5,10 +5,8 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import metier.Adresse;
-import metier.Article;
-import repository.AdresseRepository;
-import repository.ArticleRepository;
+import metier.*;
+import repository.*;
 
 @Service
 public class ArticleService {

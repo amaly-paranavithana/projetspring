@@ -5,10 +5,8 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import metier.Article;
-import metier_martial.Film;
-import repository.ArticleRepository;
-import repository.FilmRepository;
+import metier.*;
+import repository.*;
 
 @Service
 public class FilmService {

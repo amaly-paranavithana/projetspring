@@ -3,7 +3,6 @@ package metier;
 import java.util.List;
 
 import javax.persistence.*;
-import metier_martial.*;
 
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
