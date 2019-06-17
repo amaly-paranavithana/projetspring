@@ -53,7 +53,7 @@ public class AdherentService {
 			java.util.Optional<Article> opt1 = articleRepository.findById(article.getNoArticle());
 
 			if (opt1.isPresent()) {
-				adherent.setArticlesEmpruntes(article);
+				opt.get().setArticlesEmpruntes(opt1.get());
 				adherentRepository.save(opt.get());
 				articleRepository.save(opt1.get());
 			}
@@ -66,10 +66,23 @@ public class AdherentService {
 			java.util.Optional<Adresse> opt1 = adresseRepository.findById(adresse.getId());
 
 			if (opt1.isPresent()) {
-				adherent.setAdresse(adresse);
+				opt.get().setAdresse(opt1.get());
 				adherentRepository.save(opt.get());
 				adresseRepository.save(opt1.get());
 			}
 		}
 	}
+	
+	public Adherent findByNoAdherent(Integer noAdherent){
+		return adherentRepository.findByNoAdherent(noAdherent).get();
+	}
+	
+	public List<Adherent> findByPrenom(String prenom){
+		return adherentRepository.findByPrenom(prenom);
+	}
+	
+	public void findByNom(String nom){
+		adherentRepository.findByPrenom(nom);
+	}
+	
 }
