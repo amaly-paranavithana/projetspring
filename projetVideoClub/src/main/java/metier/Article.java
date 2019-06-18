@@ -26,7 +26,7 @@ public class Article {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE,generator="seqArticle")
 	@Column(name = "numéro_article")
-	private Integer noArticle;
+	private Integer id;
 	@Column(name = "nombre_disque")
 	private Integer nbDisques;
 
@@ -43,16 +43,18 @@ public class Article {
 	}
 
 	// Getters & Setters
-	public Integer getNoArticle() {
-		return noArticle;
-	}
-
-	public void setNoArticle(Integer noArticle) {
-		this.noArticle = noArticle;
-	}
+	
 
 	public Integer getNbDisques() {
 		return nbDisques;
+	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
 	public void setNbDisques(Integer nbDisques) {
@@ -82,7 +84,7 @@ public class Article {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((nbDisques == null) ? 0 : nbDisques.hashCode());
-		result = prime * result + ((noArticle == null) ? 0 : noArticle.hashCode());
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		return result;
 	}
 
@@ -100,10 +102,10 @@ public class Article {
 				return false;
 		} else if (!nbDisques.equals(other.nbDisques))
 			return false;
-		if (noArticle == null) {
-			if (other.noArticle != null)
+		if (id == null) {
+			if (other.id != null)
 				return false;
-		} else if (!noArticle.equals(other.noArticle))
+		} else if (!id.equals(other.id))
 			return false;
 		return true;
 	}

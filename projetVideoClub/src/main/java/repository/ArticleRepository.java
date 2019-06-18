@@ -10,7 +10,7 @@ import org.springframework.data.repository.query.Param;
 import metier.*;
 
 public interface ArticleRepository extends JpaRepository<Article, Integer> {
-	public Optional<Article> findByNoArticle(Integer noArticle);
+	public Optional<Article> findById(Integer id);
 
 	public List<Article> findByNbDisques(Integer nbDisques);
 	// @Query query = em.createNativeQuery("SELECT * FROM Sorciers where

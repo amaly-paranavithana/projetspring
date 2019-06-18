@@ -91,8 +91,8 @@ public class Test_Martial {
 		filmService.insert(f1);
 		filmService.insert(f2);
 		
-		blu1.setNoArticle(1);
-		dvd1.setNoArticle(2);
+		blu1.setId(1);
+		dvd1.setId(2);
 		articleService.insert(blu1);
 		articleService.insert(dvd1);
 		
