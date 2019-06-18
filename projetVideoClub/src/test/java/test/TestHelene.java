@@ -22,15 +22,15 @@ public class TestHelene {
 		ArticleService serv = ctx.getBean(ArticleService.class);
 		
 		System.out.println("Trouver un article par son numéro : ");
-		System.out.println(serv.findByNoArticle(1));
+		System.out.println(serv.findById(2));
 
 		System.out.println("Trouver un article par son nombre de disques: ");
-		System.out.println(serv.findByNbDisques(1));
+		System.out.println(serv.findByNbDisques(3));
 
 		System.out.println("Trouver un article par son type");
 
-		System.out.println(serv.findByType("dvd"));
-		System.out.println(serv.findByType("bluray"));
+		System.out.println(serv.findByTypeDvd());
+		System.out.println(serv.findByTypeBluRay());
 
 		ctx.close();
 
@@ -58,7 +58,7 @@ public class TestHelene {
 		ArticleService serv = ctx.getBean(ArticleService.class);
 
 		// delete
-		serv.delete(serv.findByNoArticle(6));
+		serv.delete(serv.findById(6));
 		
 		ctx.close();
 	}
@@ -66,7 +66,7 @@ public class TestHelene {
 	public static void testArticleUpdate() {
 		ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext("application-context.xml");
 		ArticleService serv = ctx.getBean(ArticleService.class);
-		Article article=serv.findByNoArticle(6);
+		Article article=serv.findById(6);
 		
 		article.setNbDisques(2);;
 		// update
@@ -78,7 +78,7 @@ public class TestHelene {
 		ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext("application-context.xml");
 		ArticleService serv = ctx.getBean(ArticleService.class);
 		FilmService serv1 = ctx.getBean(FilmService.class);
-		Article article=serv.findByNoArticle(6);
+		Article article=serv.findById(6);
 		Film film=serv1.findById(1);
 		article.setFilms(film);
 		// update
@@ -90,7 +90,7 @@ public class TestHelene {
 		ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext("application-context.xml");
 		ArticleService serv = ctx.getBean(ArticleService.class);
 		AdherentService serv1 = ctx.getBean(AdherentService.class);
-		Article article=serv.findByNoArticle(6);
+		Article article=serv.findById(6);
 		Adherent adherent=serv1.findByNoAdherent(1);
 		adherent.setArticlesEmpruntes(article);
 		// update

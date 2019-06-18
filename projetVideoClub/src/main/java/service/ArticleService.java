@@ -22,7 +22,7 @@ public class ArticleService {
 	private FilmRepository filmRepository;
 
 	public boolean insert(Article article) {
-		if (article.getNoArticle() == null || article.getNoArticle() == 0) {
+		if (article.getId() == null || article.getId() == 0) {
 			return false;
 		}
 		articleRepository.save(article);
@@ -30,7 +30,7 @@ public class ArticleService {
 	}
 
 	public void delete(Article article) {
-		Optional<Article> opt = articleRepository.findById(article.getNoArticle());
+		Optional<Article> opt = articleRepository.findById(article.getId());
 		if (opt.isPresent()) {
 			articleRepository.delete(opt.get());
 		}
@@ -38,7 +38,7 @@ public class ArticleService {
 
 	public void update(Article article) {
 
-		Optional<Article> opt = articleRepository.findByNoArticle(article.getNoArticle());
+		Optional<Article> opt = articleRepository.findById(article.getId());
 		if (opt.isPresent()) {
 			articleRepository.save(opt.get());
 
@@ -46,7 +46,7 @@ public class ArticleService {
 	}
 
 	public void addFilm(Article article, Film film) {
-		Optional<Article> opt = articleRepository.findByNoArticle(article.getNoArticle());
+		Optional<Article> opt = articleRepository.findById(article.getId());
 		if (opt.isPresent()) {
 			Optional<Film> opt1 = filmRepository.findById(film.getId());
 
@@ -60,8 +60,8 @@ public class ArticleService {
 		}
 	}
 
-	public Article findByNoArticle(Integer noArticle) {
-		return articleRepository.findByNoArticle(noArticle).get();
+	public Article findById(Integer id) {
+		return articleRepository.findById(id).get();
 	}
 
 	public List<Article> findByNbDisques(Integer nbDisques) {

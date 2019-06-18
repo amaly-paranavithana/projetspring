@@ -50,7 +50,7 @@ public class AdherentService {
 	public void addArticle(Adherent adherent, Article article) {
 		java.util.Optional<Adherent> opt = adherentRepository.findById(adherent.getNoAdherent());
 		if (opt.isPresent()) {
-			java.util.Optional<Article> opt1 = articleRepository.findById(article.getNoArticle());
+			java.util.Optional<Article> opt1 = articleRepository.findById(article.getId());
 
 			if (opt1.isPresent()) {
 				opt.get().setArticlesEmpruntes(opt1.get());
