@@ -78,23 +78,23 @@ public class Test_Martial {
 		dvd1.setNbDisques(3);
 		dvd1.setBonus(true);
 		
-//		adherentService.insert(ad1);
-//		adherentService.insert(ad2);
-//		
-//		adr1.setId(1);
-//		adr2.setId(2);
-//		adresseService.insert(adr1);
-//		adresseService.insert(adr2);
+		adherentService.insert(ad1);
+		adherentService.insert(ad2);
 		
-//		f1.setId(1);
-//		f2.setId(2);
-//		filmService.insert(f1);
-//		filmService.insert(f2);
+		adr1.setId(1);
+		adr2.setId(2);
+		adresseService.insert(adr1);
+		adresseService.insert(adr2);
 		
-//		blu1.setNoArticle(1);
-//		dvd1.setNoArticle(2);
-//		articleService.insert(blu1);
-//		articleService.insert(dvd1);
+		f1.setId(1);
+		f2.setId(2);
+		filmService.insert(f1);
+		filmService.insert(f2);
+		
+		blu1.setNoArticle(1);
+		dvd1.setNoArticle(2);
+		articleService.insert(blu1);
+		articleService.insert(dvd1);
 		
 		ctx.close();
 		

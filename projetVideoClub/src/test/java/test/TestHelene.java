@@ -29,8 +29,8 @@ public class TestHelene {
 
 		System.out.println("Trouver un article par son type");
 
-		System.out.println(serv.findByType("dvd"));
-		System.out.println(serv.findByType("bluray"));
+		System.out.println(serv.findByTypeDvd());
+		System.out.println(serv.findByTypeBluRay());
 
 		ctx.close();
 

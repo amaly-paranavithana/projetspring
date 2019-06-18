@@ -5,7 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="join_film_grade")
+@Table(name="join_film_realisateur")
 public class FilmRealisateur {
 	
 	@EmbeddedId
