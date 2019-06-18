@@ -7,8 +7,13 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import metier.*;
-import repository.*;
+import metier.Film;
+import metier.FilmRealisateur;
+import metier.FilmRealisateurKey;
+import metier.Realisateur;
+import repository.FilmRealisateurRepository;
+import repository.FilmRepository;
+import repository.RealisateurRepository;
 
 @Service
 public class FilmService {
@@ -42,6 +47,14 @@ public class FilmService {
 	if (opt.isPresent()) {
 		filmRepository.delete(opt.get());
 	}
+	}
+	
+	public boolean insertRealisateur(Realisateur realisateur) {
+		if (realisateur.getId() == null || realisateur.getId() == 0) {
+			return false;
+		}
+		realisateurRepository.save(realisateur);
+		return true;
 	}
 	
 	public void addRealisateur(Film film, Realisateur realisateur) {
