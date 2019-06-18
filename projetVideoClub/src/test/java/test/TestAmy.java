@@ -6,8 +6,8 @@ import java.util.Optional;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import metier.Film;
-import metier.Realisateur;
+import metier.*;
+import service.ArticleService;
 import service.FilmService;
 
 public class TestAmy {
@@ -16,28 +16,33 @@ public class TestAmy {
 		testInsertFilm();
 	}
 	
+	//OK
 	public static void testInsertFilm() throws ParseException {
+		
 		ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext("application-context.xml");
 		FilmService serv = ctx.getBean(FilmService.class);
 		
 		Film f1 =new Film();
-		f1.setTitre("Avatar");
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+		f1.setTitre("Avatar");
 		f1.setDate(sdf.parse("16/12/2009"));
+		f1.setId(1);
 		serv.insert(f1);
 		
 		ctx.close();
 	}
 	
+	//OK
 		public static void testfindById() {
 		ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext("application-context.xml");
 		FilmService serv = ctx.getBean(FilmService.class);
 		
-		System.out.println(serv.findById(1));
+		System.out.println(serv.findById(1).getTitre());
 		ctx.close();
 	}
 	
-	public void testfindByTitre() {
+		//OK
+	public static void testfindByTitre() {
 		ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext("application-context.xml");
 		FilmService serv = ctx.getBean(FilmService.class);
 	
@@ -45,7 +50,7 @@ public class TestAmy {
 		ctx.close();
 	}
 	
-	public void testfindByDate() throws ParseException {
+	public static void testfindByDate() throws ParseException {
 		ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext("application-context.xml");
 		FilmService serv = ctx.getBean(FilmService.class);
 		
@@ -54,13 +59,14 @@ public class TestAmy {
 		ctx.close();
 	}
 	
-	public void testAddRealisateur () {
+	public static void testAddRealisateur () {
 		ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext("application-context.xml");
 		FilmService serv = ctx.getBean(FilmService.class);
 
 		Realisateur r1 = new Realisateur();
 		r1.setPrenom("James");
 		r1.setNom("Cameron");
+		r1.setId(1);
 		
 		Film f1 = serv.findById(1);
 		serv.addRealisateur(f1, r1);
@@ -68,7 +74,7 @@ public class TestAmy {
 		ctx.close();
 	}
 	
-	public void testDeleteFilm() {
+	public static void testDeleteFilm() {
 		ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext("application-context.xml");
 		FilmService serv = ctx.getBean(FilmService.class);
 		
