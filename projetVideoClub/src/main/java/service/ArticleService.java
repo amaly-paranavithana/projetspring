@@ -46,7 +46,7 @@ public class ArticleService {
 	}
 
 	public void addFilm(Article article, Film film) {
-		Optional<Article> opt = articleRepository.findById(article.getId());
+		Optional<Article> opt = articleRepository.findOneWithFilmsById(article.getId());
 		if (opt.isPresent()) {
 			Optional<Film> opt1 = filmRepository.findById(film.getId());
 
@@ -74,5 +74,9 @@ public class ArticleService {
 
 	public List<Article> findByTypeBluRay() {
 		return articleRepository.findByTypeBluRay();
+	}
+	
+	public  Article findOneWithFilmsById( Integer id){
+		return articleRepository.findOneWithFilmsById(id).get();
 	}
 }

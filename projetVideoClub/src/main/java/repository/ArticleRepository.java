@@ -19,6 +19,10 @@ public interface ArticleRepository extends JpaRepository<Article, Integer> {
 
 	@Query(value = "SELECT * FROM ARTICLES a WHERE a.article_type = 'dvd'", nativeQuery = true)
 	public List<Article> findByTypeDvd();
+
 	@Query(value = "SELECT * FROM ARTICLES a WHERE a.article_type = 'bluRay'", nativeQuery = true)
 	public List<Article> findByTypeBluRay();
+	
+	@Query("select article from Article article left join fetch article.films where article.id =:id")
+	public  Optional<Article> findOneWithFilmsById(@Param("id") Integer id);
 }

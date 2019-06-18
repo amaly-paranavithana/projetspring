@@ -13,7 +13,7 @@ public class TestHelene {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
-		testArticleFind();
+		testArticleAddFilm();
 	}
 
 	public static void testArticleFind() {
@@ -23,7 +23,7 @@ public class TestHelene {
 		
 		System.out.println("Trouver un article par son numéro : ");
 		System.out.println(serv.findById(2));
-
+		
 		System.out.println("Trouver un article par son nombre de disques: ");
 		System.out.println(serv.findByNbDisques(3));
 
@@ -42,7 +42,7 @@ public class TestHelene {
 		// insert
 		Article article = new Article();
 		article.setNbDisques(3);
-		
+		article.setId(10);
 		//affiche true ou false
 		System.out.println(serv.insert(article));
 		
@@ -58,7 +58,7 @@ public class TestHelene {
 		ArticleService serv = ctx.getBean(ArticleService.class);
 
 		// delete
-		serv.delete(serv.findById(6));
+		serv.delete(serv.findById(7));
 		
 		ctx.close();
 	}
@@ -66,11 +66,15 @@ public class TestHelene {
 	public static void testArticleUpdate() {
 		ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext("application-context.xml");
 		ArticleService serv = ctx.getBean(ArticleService.class);
+		
 		Article article=serv.findById(6);
+		System.out.println(article.getNbDisques());
 		
-		article.setNbDisques(2);;
+		article.setNbDisques(20);;
 		// update
+		serv.insert(article);
 		
+		System.out.println(article.getNbDisques());
 		ctx.close();
 	}
 	
@@ -78,11 +82,15 @@ public class TestHelene {
 		ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext("application-context.xml");
 		ArticleService serv = ctx.getBean(ArticleService.class);
 		FilmService serv1 = ctx.getBean(FilmService.class);
-		Article article=serv.findById(6);
-		Film film=serv1.findById(1);
-		article.setFilms(film);
+		
+		Article article=serv.findOneWithFilmsById(6);
+		System.out.println(article.getFilms());
+		Film film=serv1.findById(5);
+		System.out.println(film.getTitre());
 		// update
 		serv.addFilm(article,film);
+		System.out.println(article.getFilms());
+
 		
 		ctx.close();
 	}
