@@ -7,16 +7,17 @@ import java.util.Optional;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import metier.*;
+import repository.RealisateurRepository;
 import service.ArticleService;
 import service.FilmService;
 
 public class TestAmy {
 
 	public static void main(String[] args) throws ParseException {
-		testInsertFilm();
+		testAddRealisateur();
 	}
 	
-	//OK
+	
 	public static void testInsertFilm() throws ParseException {
 		
 		ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext("application-context.xml");
@@ -32,7 +33,7 @@ public class TestAmy {
 		ctx.close();
 	}
 	
-	//OK
+
 		public static void testfindById() {
 		ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext("application-context.xml");
 		FilmService serv = ctx.getBean(FilmService.class);
@@ -41,7 +42,7 @@ public class TestAmy {
 		ctx.close();
 	}
 	
-		//OK
+
 	public static void testfindByTitre() {
 		ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext("application-context.xml");
 		FilmService serv = ctx.getBean(FilmService.class);
@@ -49,6 +50,7 @@ public class TestAmy {
 		System.out.println(serv.findByTitre("Avatar"));
 		ctx.close();
 	}
+	
 	
 	public static void testfindByDate() throws ParseException {
 		ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext("application-context.xml");
@@ -59,26 +61,30 @@ public class TestAmy {
 		ctx.close();
 	}
 	
-	public static void testAddRealisateur () {
+	public static void testAddRealisateur () throws ParseException {
 		ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext("application-context.xml");
 		FilmService serv = ctx.getBean(FilmService.class);
+
+		
 
 		Realisateur r1 = new Realisateur();
 		r1.setPrenom("James");
 		r1.setNom("Cameron");
-		r1.setId(1);
+		r1.setId(2);
+		serv.insertRealisateur(r1);
 		
-		Film f1 = serv.findById(1);
+		Film f1 = serv.findById(5);
 		serv.addRealisateur(f1, r1);
 	 
 		ctx.close();
 	}
 	
+
 	public static void testDeleteFilm() {
 		ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext("application-context.xml");
 		FilmService serv = ctx.getBean(FilmService.class);
 		
-		serv.delete(serv.findById(1));
+		serv.delete(serv.findById(3));
 		
 		ctx.close();
 	}
